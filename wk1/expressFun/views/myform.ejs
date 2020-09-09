@@ -6,9 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-        <form action='/mypost/chris' method='GET'>
+    
+        <% for (err of errors) { %>
+            <p><%= err.message %></p>
+        <% }%>
+    
+        <form action='/meanies' method='POST'>
             <input type='text' name='name'>
-            <input type='text' name='state'>
+            <input type='text' name='email'>
             <input type="submit" value="send form">
         </form>
 </body>
