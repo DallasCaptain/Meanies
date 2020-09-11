@@ -1,0 +1,17 @@
+{{title}}
+
+<div id='tableStatus'>
+  
+</div>
+
+<button (click)='onTableRequested($event)'>{{buttonName}}</button>
+
+
+<button *ngIf='!tableRequested' (click)='requestTable()'>Request</button>
+<button *ngIf='tableRequested'(click)='cancelTable()'>Cancel</button>
+
+<table>
+  <tr *ngFor='let table of tables'><td>{{table.name}}</td><td>{{table.status}}</td><td><button (click)='requestTable(table.id)'>Request/Cancel</button></td></tr>
+</table>
+
+<router-outlet></router-outlet>

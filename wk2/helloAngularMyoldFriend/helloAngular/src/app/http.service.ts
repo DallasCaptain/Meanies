@@ -13,4 +13,8 @@ export class HttpService {
     
   }
 
+  updateTable(table){
+    return this._http.put('/api/table/'+table.id,table)
+  }
+
 }
