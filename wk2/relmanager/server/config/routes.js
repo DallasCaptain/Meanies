@@ -1,9 +1,30 @@
 //translates a url request into appropriate action
 
 const pets = require('../controllers/pets')
+const { Pet } = require('../models/pet')
 
 
 module.exports = function(app){
+
+    //api fun routes
+    app.get('/api/pets',(req,res)=>{
+        pets.petindex(req,res)
+    })
+    app.post('/api/pets',(req,res)=>{
+        pet = new Pet()
+        pet.name = req.body.name
+        pet.breed = req.body.breed
+        pet.coat = req.body.coat
+        pet.save()
+        .then(newpet=>res.json(newpet))
+        .catch(err=>res.json(err))
+    })
+
+
+
+
+    //normal routes
+
 
     app.get('/',(req,res)=>{
         pets.index(req,res)
