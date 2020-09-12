@@ -1,0 +1,32 @@
+<div>
+  <h3>Gold Count: {{gold}}</h3>
+</div>
+<div>
+  <div class='getgold'>
+    <h3>Farm</h3>
+    <p>Earn 2-5 G</p>
+    <button (click)='GoldRequested(2,5,"farm")'>LOC</button>
+  </div>
+  <div class='getgold'>
+    <h3>Cave</h3>
+    <p>Earn</p>
+    <button (click)='GoldRequested(5,10,"cave")'>LOC</button>
+  </div>
+  <div class='getgold'>
+    <h3>House</h3>
+    <p>Earn</p>
+    <button (click)='GoldRequested(7,15,"house")'>LOC</button>
+  </div>
+  <div class='getgold'>
+    <h3>Casino</h3>
+    <p>Earn</p>
+    <button (click)='GoldRequested(-100,100,"casino")'>LOC</button>
+  </div>
+</div>
+
+<div>
+  <h1>History</h1>
+  <p *ngFor='let g of event'>You have earned {{g}}</p>
+</div>
+
+<router-outlet></router-outlet>
