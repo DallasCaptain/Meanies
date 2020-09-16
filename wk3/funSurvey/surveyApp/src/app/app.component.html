@@ -1,16 +1,5 @@
-<h1> Fun Surveys </h1>
-
-<form (submit)='onSubmit()'>
-  <input type="text" name="name" [(ngModel)]='surveyform.name'>
-  <input type="text" name="opinion" [(ngModel)]='surveyform.opinion'>
-  <input type="submit" value="Send Survey">
-</form>
-<button (click)='showTable()'>showtable</button>
-
-
-<table *ngIf='showtable'>
-<tr *ngFor='let survey of surveyResults'>
-  <app-survey-result [survey]='survey'></app-survey-result>
-</tr>
-</table>
+<h1>Our app</h1>
+<p [routerLink]="['/kittens/99']" >See Cuteness</p>
+<button [routerLink]="['/']" >Go Home</button>
+<app-surveymanager (myoutput)="datafromchild($event)"></app-surveymanager>
 <router-outlet></router-outlet>

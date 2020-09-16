@@ -1,0 +1,25 @@
+<h1> Fun Surveys </h1>
+
+<form (submit)='onSubmit()'>
+  <p *ngIf='!name.valid' class='danger'>
+    <span *ngIf='name.errors.required' class='danger'>Name is required</span>
+    Name must be atleast 4 characters</p>
+  <input type="text" name="name" #name='ngModel' required minlength="4"  [(ngModel)]='surveyform.name'>
+  <input type="text" name="opinion" #opinion='ngModel' minlength="6"  required [(ngModel)]='surveyform.opinion'>
+  <input *ngIf='name.valid && opinion.valid' type="submit" value="Send Survey">
+</form>
+
+<hr>
+{{name.errors | json}}
+{{opinion.errors | json}}
+<hr>
+
+<button (click)='showTable()'>showtable</button>
+<button (click)='triggerEvent()'>Trigger</button>
+
+<table *ngIf='showtable'>
+<tr *ngFor='let survey of surveyResults'>
+  <app-survey-result [survey]='survey'></app-survey-result>
+</tr>
+</table>
+
